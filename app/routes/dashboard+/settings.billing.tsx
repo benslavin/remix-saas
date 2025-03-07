@@ -83,15 +83,15 @@ export default function DashboardBilling() {
   return (
     <div className="flex h-full w-full flex-col gap-6">
       <div className="flex w-full flex-col gap-2 p-6 py-2">
-        <h2 className="text-xl font-medium text-primary">This is a demo app.</h2>
-        <p className="text-sm font-normal text-primary/60">
+        <h2 className="text-primary text-xl font-medium">This is a demo app.</h2>
+        <p className="text-primary/60 text-sm font-normal">
           Remix SaaS is a demo app that uses Stripe test environment. You can find a list
           of test card numbers on the{' '}
           <a
             href="https://stripe.com/docs/testing#cards"
             target="_blank"
             rel="noreferrer"
-            className="font-medium text-primary/80 underline">
+            className="text-primary/80 font-medium underline">
             Stripe docs
           </a>
           .
@@ -99,12 +99,12 @@ export default function DashboardBilling() {
       </div>
 
       {/* Plans */}
-      <div className="flex w-full flex-col items-start rounded-lg border border-border bg-card">
+      <div className="border-border bg-card flex w-full flex-col items-start rounded-lg border">
         <div className="flex flex-col gap-2 p-6">
-          <h2 className="text-xl font-medium text-primary">Plan</h2>
-          <p className="flex items-start gap-1 text-sm font-normal text-primary/60">
+          <h2 className="text-primary text-xl font-medium">Plan</h2>
+          <p className="text-primary/60 flex items-start gap-1 text-sm font-normal">
             You are currently on the{' '}
-            <span className="flex h-[18px] items-center rounded-md bg-primary/10 px-1.5 text-sm font-medium text-primary/80">
+            <span className="bg-primary/10 text-primary/80 flex h-[18px] items-center rounded-md px-1.5 text-sm font-medium">
               {subscription
                 ? subscription.planId?.charAt(0).toUpperCase() +
                   subscription.planId.slice(1)
@@ -115,14 +115,14 @@ export default function DashboardBilling() {
         </div>
 
         {subscription?.planId === PLANS.FREE && (
-          <div className="flex w-full flex-col items-center justify-evenly gap-2 border-border p-6 pt-0">
+          <div className="border-border flex w-full flex-col items-center justify-evenly gap-2 p-6 pt-0">
             {Object.values(PRICING_PLANS).map((plan) => (
               <div
                 key={plan.id}
                 tabIndex={0}
                 role="button"
-                className={`flex w-full select-none items-center rounded-md border border-border hover:border-primary/60 ${
-                  selectedPlanId === plan.id && 'border-primary/60 ring-1 ring-primary/60'
+                className={`border-border hover:border-primary/60 flex w-full items-center rounded-md border select-none ${
+                  selectedPlanId === plan.id && 'border-primary/60 ring-primary/60 ring-1'
                 }`}
                 onClick={() => setSelectedPlanId(plan.id)}
                 onKeyDown={(e) => {
@@ -130,11 +130,11 @@ export default function DashboardBilling() {
                 }}>
                 <div className="flex w-full flex-col items-start p-4">
                   <div className="flex items-center gap-2">
-                    <span className="text-base font-medium text-primary">
+                    <span className="text-primary text-base font-medium">
                       {plan.name}
                     </span>
                     {plan.id !== PLANS.FREE && (
-                      <span className="flex items-center rounded-md bg-primary/10 px-1.5 text-sm font-medium text-primary/80">
+                      <span className="bg-primary/10 text-primary/80 flex items-center rounded-md px-1.5 text-sm font-medium">
                         {currency === CURRENCIES.USD ? '$' : '€'}{' '}
                         {selectedPlanInterval === INTERVALS.MONTH
                           ? plan.prices[INTERVALS.MONTH][currency] / 100
@@ -143,7 +143,7 @@ export default function DashboardBilling() {
                       </span>
                     )}
                   </div>
-                  <p className="text-start text-sm font-normal text-primary/60">
+                  <p className="text-primary/60 text-start text-sm font-normal">
                     {plan.description}
                   </p>
                 </div>
@@ -153,7 +153,7 @@ export default function DashboardBilling() {
                   <div className="flex items-center gap-2 px-4">
                     <label
                       htmlFor="interval-switch"
-                      className="text-start text-sm text-primary/60">
+                      className="text-primary/60 text-start text-sm">
                       {selectedPlanInterval === INTERVALS.MONTH ? 'Monthly' : 'Yearly'}
                     </label>
                     <Switch
@@ -173,15 +173,15 @@ export default function DashboardBilling() {
         )}
 
         {subscription && subscription.planId !== PLANS.FREE && (
-          <div className="flex w-full flex-col items-center justify-evenly gap-2 border-border p-6 pt-0">
-            <div className="flex w-full items-center overflow-hidden rounded-md border border-primary/60">
+          <div className="border-border flex w-full flex-col items-center justify-evenly gap-2 p-6 pt-0">
+            <div className="border-primary/60 flex w-full items-center overflow-hidden rounded-md border">
               <div className="flex w-full flex-col items-start p-4">
                 <div className="flex items-end gap-2">
-                  <span className="text-base font-medium text-primary">
+                  <span className="text-primary text-base font-medium">
                     {subscription.planId.charAt(0).toUpperCase() +
                       subscription.planId.slice(1)}
                   </span>
-                  <p className="flex items-start gap-1 text-sm font-normal text-primary/60">
+                  <p className="text-primary/60 flex items-start gap-1 text-sm font-normal">
                     {subscription.cancelAtPeriodEnd === true ? (
                       <span className="flex h-[18px] items-center text-sm font-medium text-red-500">
                         Expires
@@ -198,7 +198,7 @@ export default function DashboardBilling() {
                     .
                   </p>
                 </div>
-                <p className="text-start text-sm font-normal text-primary/60">
+                <p className="text-primary/60 text-start text-sm font-normal">
                   {PRICING_PLANS[PLANS.PRO].description}
                 </p>
               </div>
@@ -206,8 +206,8 @@ export default function DashboardBilling() {
           </div>
         )}
 
-        <div className="flex min-h-14 w-full items-center justify-between rounded-lg rounded-t-none border-t border-border bg-secondary px-6 py-3 dark:bg-card">
-          <p className="text-sm font-normal text-primary/60">
+        <div className="border-border bg-secondary dark:bg-card flex min-h-14 w-full items-center justify-between rounded-lg rounded-t-none border-t px-6 py-3">
+          <p className="text-primary/60 text-sm font-normal">
             You will not be charged for testing the subscription upgrade.
           </p>
           {subscription?.planId === PLANS.FREE && (
@@ -228,16 +228,16 @@ export default function DashboardBilling() {
       </div>
 
       {/* Manage Subscription */}
-      <div className="flex w-full flex-col items-start rounded-lg border border-border bg-card">
+      <div className="border-border bg-card flex w-full flex-col items-start rounded-lg border">
         <div className="flex flex-col gap-2 p-6">
-          <h2 className="text-xl font-medium text-primary">Manage Subscription</h2>
-          <p className="flex items-start gap-1 text-sm font-normal text-primary/60">
+          <h2 className="text-primary text-xl font-medium">Manage Subscription</h2>
+          <p className="text-primary/60 flex items-start gap-1 text-sm font-normal">
             Update your payment method, billing address, and more.
           </p>
         </div>
 
-        <div className="flex min-h-14 w-full items-center justify-between rounded-lg rounded-t-none border-t border-border bg-secondary px-6 py-3 dark:bg-card">
-          <p className="text-sm font-normal text-primary/60">
+        <div className="border-border bg-secondary dark:bg-card flex min-h-14 w-full items-center justify-between rounded-lg rounded-t-none border-t px-6 py-3">
+          <p className="text-primary/60 text-sm font-normal">
             You will be redirected to the Stripe Customer Portal.
           </p>
           <Form method="POST">

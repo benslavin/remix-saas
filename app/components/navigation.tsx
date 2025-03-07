@@ -48,8 +48,8 @@ export function Navigation({ user, planId }: NavigationProps) {
   const isBillingPath = location.pathname === DASHBOARD_SETTINGS_BILLING_PATH
 
   return (
-    <nav className="sticky top-0 z-50 flex w-full flex-col border-b border-border bg-card px-6">
-      <div className="mx-auto flex w-full max-w-screen-xl items-center justify-between py-3">
+    <nav className="border-border bg-card sticky top-0 z-50 flex w-full flex-col border-b px-6">
+      <div className="mx-auto flex w-full max-w-(--breakpoint-xl) items-center justify-between py-3">
         <div className="flex h-10 items-center gap-2">
           <Link
             to={DASHBOARD_PATH}
@@ -57,12 +57,12 @@ export function Navigation({ user, planId }: NavigationProps) {
             className="flex h-10 items-center gap-1">
             <Logo />
           </Link>
-          <Slash className="h-6 w-6 -rotate-12 stroke-[1.5px] text-primary/10" />
+          <Slash className="text-primary/10 h-6 w-6 -rotate-12 stroke-[1.5px]" />
           <DropdownMenu modal={false}>
             <DropdownMenuTrigger asChild>
               <Button
                 variant="ghost"
-                className="gap-2 px-2 data-[state=open]:bg-primary/5">
+                className="data-[state=open]:bg-primary/5 gap-2 px-2">
                 <div className="flex items-center gap-2">
                   {user?.image?.id ? (
                     <img
@@ -71,28 +71,28 @@ export function Navigation({ user, planId }: NavigationProps) {
                       src={getUserImgSrc(user.image?.id)}
                     />
                   ) : (
-                    <span className="h-8 w-8 rounded-full bg-gradient-to-br from-lime-400 from-10% via-cyan-300 to-blue-500" />
+                    <span className="h-8 w-8 rounded-full bg-linear-to-br from-lime-400 from-10% via-cyan-300 to-blue-500" />
                   )}
 
-                  <p className="text-sm font-medium text-primary/80">
+                  <p className="text-primary/80 text-sm font-medium">
                     {user?.username || ''}
                   </p>
-                  <span className="flex h-5 items-center rounded-full bg-primary/10 px-2 text-xs font-medium text-primary/80">
+                  <span className="bg-primary/10 text-primary/80 flex h-5 items-center rounded-full px-2 text-xs font-medium">
                     {(planId && planId.charAt(0).toUpperCase() + planId.slice(1)) ||
                       'Free'}
                   </span>
                 </div>
                 <span className="flex flex-col items-center justify-center">
-                  <ChevronUp className="relative top-[3px] h-[14px] w-[14px] stroke-[1.5px] text-primary/60" />
-                  <ChevronDown className="relative bottom-[3px] h-[14px] w-[14px] stroke-[1.5px] text-primary/60" />
+                  <ChevronUp className="text-primary/60 relative top-[3px] h-[14px] w-[14px] stroke-[1.5px]" />
+                  <ChevronDown className="text-primary/60 relative bottom-[3px] h-[14px] w-[14px] stroke-[1.5px]" />
                 </span>
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent sideOffset={8} className="min-w-56 bg-card p-2">
-              <DropdownMenuLabel className="flex items-center text-xs font-normal text-primary/60">
+            <DropdownMenuContent sideOffset={8} className="bg-card min-w-56 p-2">
+              <DropdownMenuLabel className="text-primary/60 flex items-center text-xs font-normal">
                 Personal Account
               </DropdownMenuLabel>
-              <DropdownMenuItem className="h-10 w-full cursor-pointer justify-between rounded-md bg-secondary px-2">
+              <DropdownMenuItem className="bg-secondary h-10 w-full cursor-pointer justify-between rounded-md px-2">
                 <div className="flex items-center gap-2">
                   {user?.image?.id ? (
                     <img
@@ -101,14 +101,14 @@ export function Navigation({ user, planId }: NavigationProps) {
                       src={getUserImgSrc(user.image?.id)}
                     />
                   ) : (
-                    <span className="h-6 w-6 rounded-full bg-gradient-to-br from-lime-400 from-10% via-cyan-300 to-blue-500" />
+                    <span className="h-6 w-6 rounded-full bg-linear-to-br from-lime-400 from-10% via-cyan-300 to-blue-500" />
                   )}
 
-                  <p className="text-sm font-medium text-primary/80">
+                  <p className="text-primary/80 text-sm font-medium">
                     {user?.username || ''}
                   </p>
                 </div>
-                <Check className="h-[18px] w-[18px] stroke-[1.5px] text-primary/60" />
+                <Check className="text-primary/60 h-[18px] w-[18px] stroke-[1.5px]" />
               </DropdownMenuItem>
 
               {planId && planId === PLANS.FREE && (
@@ -134,16 +134,16 @@ export function Navigation({ user, planId }: NavigationProps) {
             rel="noreferrer"
             className={cn(
               buttonVariants({ variant: 'link', size: 'sm' }),
-              'group flex gap-3 px-0 text-primary/80 hover:text-primary hover:no-underline',
+              'group text-primary/80 hover:text-primary flex gap-3 px-0 hover:no-underline',
             )}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6 text-primary/80 transition group-hover:text-primary"
+              className="text-primary/80 group-hover:text-primary h-6 w-6 transition"
               viewBox="0 0 24 24"
               fill="currentColor">
               <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
             </svg>
-            <span className="hidden select-none items-center gap-1 rounded-full bg-green-500/5 px-2 py-1.5 pr-2.5 text-xs font-semibold tracking-tight text-green-600 ring-1 ring-inset ring-green-600/20 backdrop-blur-sm transition-all duration-300 group-hover:brightness-110 dark:bg-yellow-800/40 dark:text-yellow-100 dark:ring-yellow-200/50 md:flex">
+            <span className="hidden items-center gap-1 rounded-full bg-green-500/5 px-2 py-1.5 pr-2.5 text-xs font-semibold tracking-tight text-green-600 ring-1 ring-green-600/20 backdrop-blur-xs transition-all duration-300 select-none ring-inset group-hover:brightness-110 md:flex dark:bg-yellow-800/40 dark:text-yellow-100 dark:ring-yellow-200/50">
               <Star
                 className="h-3 w-3 text-green-600 dark:text-yellow-100"
                 fill="currentColor"
@@ -161,34 +161,34 @@ export function Navigation({ user, planId }: NavigationProps) {
                     src={getUserImgSrc(user.image?.id)}
                   />
                 ) : (
-                  <span className="min-h-8 min-w-8 rounded-full bg-gradient-to-br from-lime-400 from-10% via-cyan-300 to-blue-500" />
+                  <span className="min-h-8 min-w-8 rounded-full bg-linear-to-br from-lime-400 from-10% via-cyan-300 to-blue-500" />
                 )}
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent
               sideOffset={8}
-              className="fixed -right-4 min-w-56 bg-card p-2">
+              className="bg-card fixed -right-4 min-w-56 p-2">
               <DropdownMenuItem className="group flex-col items-start focus:bg-transparent">
-                <p className="text-sm font-medium text-primary/80 group-hover:text-primary group-focus:text-primary">
+                <p className="text-primary/80 group-hover:text-primary group-focus:text-primary text-sm font-medium">
                   {user?.username || ''}
                 </p>
-                <p className="text-sm text-primary/60">{user?.email}</p>
+                <p className="text-primary/60 text-sm">{user?.email}</p>
               </DropdownMenuItem>
 
               <DropdownMenuItem
                 className="group h-9 w-full cursor-pointer justify-between rounded-md px-2"
                 onClick={() => navigate(DASHBOARD_SETTINGS_PATH)}>
-                <span className="text-sm text-primary/60 group-hover:text-primary group-focus:text-primary">
+                <span className="text-primary/60 group-hover:text-primary group-focus:text-primary text-sm">
                   Settings
                 </span>
-                <Settings className="h-[18px] w-[18px] stroke-[1.5px] text-primary/60 group-hover:text-primary group-focus:text-primary" />
+                <Settings className="text-primary/60 group-hover:text-primary group-focus:text-primary h-[18px] w-[18px] stroke-[1.5px]" />
               </DropdownMenuItem>
 
               <DropdownMenuItem
                 className={cn(
                   'group flex h-9 justify-between rounded-md px-2 hover:bg-transparent',
                 )}>
-                <span className="w-full text-sm text-primary/60 group-hover:text-primary group-focus:text-primary">
+                <span className="text-primary/60 group-hover:text-primary group-focus:text-primary w-full text-sm">
                   Theme
                 </span>
                 <ThemeSwitcher userPreference={requestInfo.userPrefs.theme} />
@@ -198,7 +198,7 @@ export function Navigation({ user, planId }: NavigationProps) {
                 className={cn(
                   'group flex h-9 justify-between rounded-md px-2 hover:bg-transparent',
                 )}>
-                <span className="w-full text-sm text-primary/60 group-hover:text-primary group-focus:text-primary">
+                <span className="text-primary/60 group-hover:text-primary group-focus:text-primary w-full text-sm">
                   Language
                 </span>
                 <LanguageSwitcher />
@@ -209,17 +209,17 @@ export function Navigation({ user, planId }: NavigationProps) {
               <DropdownMenuItem
                 className="group h-9 w-full cursor-pointer justify-between rounded-md px-2"
                 onClick={() => submit({}, { action: LOGOUT_PATH, method: 'POST' })}>
-                <span className="text-sm text-primary/60 group-hover:text-primary group-focus:text-primary">
+                <span className="text-primary/60 group-hover:text-primary group-focus:text-primary text-sm">
                   Log Out
                 </span>
-                <LogOut className="h-[18px] w-[18px] stroke-[1.5px] text-primary/60 group-hover:text-primary group-focus:text-primary" />
+                <LogOut className="text-primary/60 group-hover:text-primary group-focus:text-primary h-[18px] w-[18px] stroke-[1.5px]" />
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
       </div>
 
-      <div className="mx-auto flex w-full max-w-screen-xl items-center gap-3">
+      <div className="mx-auto flex w-full max-w-(--breakpoint-xl) items-center gap-3">
         {user && userHasRole(user, 'admin') && (
           <div
             className={`flex h-12 items-center border-b-2 ${isAdminPath ? 'border-primary' : 'border-transparent'}`}>

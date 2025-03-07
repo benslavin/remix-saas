@@ -47,7 +47,7 @@ export default function Layout() {
 
   return (
     <div className="flex h-screen w-full">
-      <div className="absolute left-1/2 top-10 mx-auto flex -translate-x-1/2 transform lg:hidden">
+      <div className="absolute top-10 left-1/2 mx-auto flex -translate-x-1/2 transform lg:hidden">
         <Link
           to={HOME_PATH}
           prefetch="intent"
@@ -55,7 +55,7 @@ export default function Layout() {
           <Logo />
         </Link>
       </div>
-      <div className="relative hidden h-full w-[50%] flex-col justify-between overflow-hidden bg-card p-10 lg:flex">
+      <div className="bg-card relative hidden h-full w-[50%] flex-col justify-between overflow-hidden p-10 lg:flex">
         <Link
           to={HOME_PATH}
           prefetch="intent"
@@ -64,12 +64,12 @@ export default function Layout() {
         </Link>
 
         <div className="z-10 flex flex-col items-start gap-2">
-          <p className="text-base font-normal text-primary">{randomQuote.quote}</p>
-          <p className="text-base font-normal text-primary/60">- {randomQuote.author}</p>
+          <p className="text-primary text-base font-normal">{randomQuote.quote}</p>
+          <p className="text-primary/60 text-base font-normal">- {randomQuote.author}</p>
         </div>
-        <div className="base-grid absolute left-0 top-0 z-0 h-full w-full opacity-40" />
+        <div className="base-grid absolute top-0 left-0 z-0 h-full w-full opacity-40" />
       </div>
-      <div className="flex h-full w-full flex-col border-l border-primary/5 bg-card lg:w-[50%]">
+      <div className="border-primary/5 bg-card flex h-full w-full flex-col border-l lg:w-[50%]">
         <Outlet />
       </div>
     </div>

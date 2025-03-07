@@ -32,7 +32,7 @@ export default function Dashboard() {
   const { user, subscription } = useLoaderData<typeof loader>()
 
   return (
-    <div className="flex min-h-[100vh] w-full flex-col bg-secondary dark:bg-black">
+    <div className="bg-secondary flex min-h-[100vh] w-full flex-col dark:bg-black">
       <Navigation user={user} planId={subscription?.planId} />
       <Header />
       <Outlet />

@@ -83,10 +83,10 @@ export default function Login() {
   return (
     <div className="mx-auto flex h-full w-full max-w-96 flex-col items-center justify-center gap-6">
       <div className="mb-2 flex flex-col gap-2">
-        <h3 className="text-center text-2xl font-medium text-primary">
+        <h3 className="text-primary text-center text-2xl font-medium">
           Continue to Remix SaaS
         </h3>
-        <p className="text-center text-base font-normal text-primary/60">
+        <p className="text-primary/60 text-center text-base font-normal">
           Please log in to continue.
         </p>
       </div>
@@ -117,12 +117,12 @@ export default function Login() {
 
         <div className="flex flex-col">
           {!authError && email.errors && (
-            <span className="mb-2 text-sm text-destructive dark:text-destructive-foreground">
+            <span className="text-destructive dark:text-destructive-foreground mb-2 text-sm">
               {email.errors.join(' ')}
             </span>
           )}
           {!authEmail && authError && (
-            <span className="mb-2 text-sm text-destructive dark:text-destructive-foreground">
+            <span className="text-destructive dark:text-destructive-foreground mb-2 text-sm">
               {authError.message}
             </span>
           )}
@@ -134,8 +134,8 @@ export default function Login() {
       </Form>
 
       <div className="relative flex w-full items-center justify-center">
-        <span className="absolute w-full border-b border-border" />
-        <span className="z-10 bg-card px-3 text-xs font-medium uppercase text-primary/60">
+        <span className="border-border absolute w-full border-b" />
+        <span className="bg-card text-primary/60 z-10 px-3 text-xs font-medium uppercase">
           Or
         </span>
       </div>
@@ -144,7 +144,7 @@ export default function Login() {
         <Button variant="outline" className="w-full gap-2 bg-transparent">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-4 w-4 text-primary/80 group-hover:text-primary"
+            className="text-primary/80 group-hover:text-primary h-4 w-4"
             viewBox="0 0 24 24">
             <path
               fill="currentColor"
@@ -156,13 +156,13 @@ export default function Login() {
         </Button>
       </Form>
 
-      <p className="px-12 text-center text-sm font-normal leading-normal text-primary/60">
+      <p className="text-primary/60 px-12 text-center text-sm leading-normal font-normal">
         By clicking continue, you agree to our{' '}
-        <a href="/" className="underline hover:text-primary">
+        <a href="/" className="hover:text-primary underline">
           Terms of Service
         </a>{' '}
         and{' '}
-        <a href="/" className="underline hover:text-primary">
+        <a href="/" className="hover:text-primary underline">
           Privacy Policy.
         </a>
       </p>

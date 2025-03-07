@@ -34,7 +34,7 @@ export default function DashboardSettings() {
 
   return (
     <div className="flex h-full w-full px-6 py-8">
-      <div className="mx-auto flex h-full w-full max-w-screen-xl gap-12">
+      <div className="mx-auto flex h-full w-full max-w-(--breakpoint-xl) gap-12">
         <div className="hidden w-full max-w-64 flex-col gap-0.5 lg:flex">
           <Link
             to={ROUTE_PATH}
@@ -44,7 +44,7 @@ export default function DashboardSettings() {
             )}>
             <span
               className={cn(
-                `text-sm text-primary/80 ${isSettingsPath && 'font-medium text-primary'}`,
+                `text-primary/80 text-sm ${isSettingsPath && 'text-primary font-medium'}`,
               )}>
               General
             </span>
@@ -57,7 +57,7 @@ export default function DashboardSettings() {
             )}>
             <span
               className={cn(
-                `text-sm text-primary/80 ${isBillingPath && 'font-medium text-primary'}`,
+                `text-primary/80 text-sm ${isBillingPath && 'text-primary font-medium'}`,
               )}>
               Billing
             </span>

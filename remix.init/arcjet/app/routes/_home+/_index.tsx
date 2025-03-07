@@ -57,11 +57,11 @@ export default function Index() {
   const theme = useTheme()
 
   return (
-    <div className="relative flex h-full w-full flex-col bg-card">
+    <div className="bg-card relative flex h-full w-full flex-col">
       {/* Navigation */}
       <nav
         className={cn(
-          'sticky top-1.5 z-50 mx-auto flex w-full max-w-screen-lg items-center justify-between rounded-lg bg-card/20 p-6 py-3 backdrop-blur transition-all duration-300 dark:bg-secondary/20',
+          'bg-card/20 dark:bg-secondary/20 sticky top-1.5 z-50 mx-auto flex w-full max-w-screen-lg items-center justify-between rounded-lg p-6 py-3 backdrop-blur transition-all duration-300',
         )}>
         <Link to="/" prefetch="intent" className="flex h-10 items-center gap-1">
           <Logo />
@@ -74,16 +74,16 @@ export default function Index() {
               rel="noreferrer"
               className={cn(
                 buttonVariants({ variant: 'link', size: 'sm' }),
-                'group flex gap-3 px-0 text-primary/80 hover:text-primary hover:no-underline',
+                'group text-primary/80 hover:text-primary flex gap-3 px-0 hover:no-underline',
               )}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6 text-primary/80 transition group-hover:text-primary"
+                className="text-primary/80 group-hover:text-primary h-6 w-6 transition"
                 viewBox="0 0 24 24"
                 fill="currentColor">
                 <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
               </svg>
-              <span className="hidden select-none items-center gap-1 rounded-full bg-green-500/5 px-2 py-1.5 pr-2.5 text-xs font-semibold tracking-tight text-green-600 ring-1 ring-inset ring-green-600/20 backdrop-blur-sm transition-all duration-300 group-hover:brightness-110 dark:bg-yellow-800/40 dark:text-yellow-100 dark:ring-yellow-200/50 md:flex">
+              <span className="hidden items-center gap-1 rounded-full bg-green-500/5 px-2 py-1.5 pr-2.5 text-xs font-semibold tracking-tight text-green-600 ring-1 ring-green-600/20 backdrop-blur-sm transition-all duration-300 select-none ring-inset group-hover:brightness-110 md:flex dark:bg-yellow-800/40 dark:text-yellow-100 dark:ring-yellow-200/50">
                 <Star
                   className="h-3 w-3 text-green-600 dark:text-yellow-100"
                   fill="currentColor"
@@ -98,7 +98,7 @@ export default function Index() {
             rel="noreferrer"
             className="group flex h-9 w-9 items-center justify-center">
             <svg
-              className="h-5 w-5 text-primary transition group-hover:scale-110"
+              className="text-primary h-5 w-5 transition group-hover:scale-110"
               strokeLinejoin="round"
               viewBox="0 0 16 16">
               <path
@@ -122,12 +122,12 @@ export default function Index() {
           <Button
             variant="outline"
             className={cn(
-              'hidden h-8 rounded-full bg-white/60 px-3 text-sm font-bold ring-1 ring-primary/5 backdrop-blur transition hover:text-primary hover:brightness-110 dark:bg-secondary md:flex',
+              'ring-primary/5 hover:text-primary dark:bg-secondary hidden h-8 rounded-full bg-white/60 px-3 text-sm font-bold ring-1 backdrop-blur transition hover:brightness-110 md:flex',
             )}>
-            <span className="flex items-center font-medium text-primary/60">
+            <span className="text-primary/60 flex items-center font-medium">
               Introducing
               <svg
-                className="mx-1.5 h-4 w-4 text-primary"
+                className="text-primary mx-1.5 h-4 w-4"
                 strokeLinejoin="round"
                 viewBox="0 0 16 16">
                 <path
@@ -140,14 +140,14 @@ export default function Index() {
             </span>
             {siteConfig.siteTitle}
           </Button>
-          <h1 className="text-center text-6xl font-bold leading-tight text-primary md:text-7xl lg:leading-tight">
+          <h1 className="text-primary text-center text-6xl leading-tight font-bold md:text-7xl lg:leading-tight">
             Production Ready
             <br />
             SaaS Stack for Remix
           </h1>
-          <p className="max-w-screen-md text-center text-lg !leading-normal text-muted-foreground md:text-xl">
+          <p className="text-muted-foreground max-w-screen-md text-center text-lg !leading-normal md:text-xl">
             Launch in days with a modern{' '}
-            <span className="font-medium text-primary">Production-Ready Stack</span>
+            <span className="text-primary font-medium">Production-Ready Stack</span>
             <br className="hidden lg:inline-block" /> Stripe integration. Vite-powered.
             Open Source.
           </p>
@@ -173,7 +173,7 @@ export default function Index() {
 
         {/* Features */}
         <div className="flex w-full flex-col items-center justify-center gap-2">
-          <h2 className="text-center font-serif text-2xl font-medium text-primary/60">
+          <h2 className="text-primary/60 text-center font-serif text-2xl font-medium">
             Built for Developers
           </h2>
           <div className="my-8 flex flex-wrap items-center justify-center gap-10 gap-y-8 lg:gap-14">
@@ -181,7 +181,7 @@ export default function Index() {
               target="_blank"
               rel="noreferrer"
               aria-label="Remix.run"
-              className="flex items-center text-primary opacity-80 grayscale transition hover:opacity-100"
+              className="text-primary flex items-center opacity-80 grayscale transition hover:opacity-100"
               href="https://remix.run">
               <div className="relative flex h-6 w-[98px] items-center justify-center">
                 <svg
@@ -222,7 +222,7 @@ export default function Index() {
               target="_blank"
               rel="noreferrer"
               aria-label="Vite"
-              className="flex items-center text-primary opacity-80 grayscale transition hover:opacity-100"
+              className="text-primary flex items-center opacity-80 grayscale transition hover:opacity-100"
               href="https://vitejs.dev">
               <svg
                 viewBox="0 0 256 257"
@@ -264,7 +264,7 @@ export default function Index() {
               target="_blank"
               rel="noreferrer"
               aria-label="Stripe"
-              className="flex items-center text-primary opacity-80 grayscale transition hover:opacity-100"
+              className="text-primary flex items-center opacity-80 grayscale transition hover:opacity-100"
               href="https://stripe.com">
               <svg
                 className="h-8 w-auto"
@@ -283,7 +283,7 @@ export default function Index() {
               target="_blank"
               rel="noreferrer"
               aria-label="Prisma"
-              className="flex items-center text-primary opacity-80 grayscale transition hover:opacity-100"
+              className="text-primary flex items-center opacity-80 grayscale transition hover:opacity-100"
               href="https://www.prisma.io">
               <svg
                 className="h-9 w-auto"
@@ -299,7 +299,7 @@ export default function Index() {
               target="_blank"
               rel="noreferrer"
               aria-label="Resend"
-              className="flex items-center text-primary opacity-80 grayscale transition hover:opacity-100"
+              className="text-primary flex items-center opacity-80 grayscale transition hover:opacity-100"
               href="https://resend.com">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -337,7 +337,7 @@ export default function Index() {
               target="_blank"
               rel="noreferrer"
               aria-label="shadcn/ui"
-              className="flex items-center text-primary opacity-80 grayscale transition hover:opacity-100"
+              className="text-primary flex items-center opacity-80 grayscale transition hover:opacity-100"
               href="https://ui.shadcn.com/">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -372,7 +372,7 @@ export default function Index() {
               target="_blank"
               rel="noreferrer"
               aria-label="Fly.io"
-              className="flex items-center text-primary opacity-80 grayscale transition hover:opacity-100"
+              className="text-primary flex items-center opacity-80 grayscale transition hover:opacity-100"
               href="https://fly.io">
               <svg viewBox="0 0 259 84" className="h-9" fillRule="evenodd">
                 <title id="title-F7R838wtvsn8DF6B"></title>
@@ -414,10 +414,10 @@ export default function Index() {
             </a>
           </div>
         </div>
-        <div className="relative z-10 flex flex-col border border-border backdrop-blur-sm lg:flex-row">
-          <div className="flex w-full flex-col items-start justify-center gap-6 border-r border-primary/10 p-10 lg:p-12">
-            <p className="h-14 text-lg text-primary/60">
-              <span className="font-semibold text-primary">Production Ready.</span> Build
+        <div className="border-border relative z-10 flex flex-col border backdrop-blur-sm lg:flex-row">
+          <div className="border-primary/10 flex w-full flex-col items-start justify-center gap-6 border-r p-10 lg:p-12">
+            <p className="text-primary/60 h-14 text-lg">
+              <span className="text-primary font-semibold">Production Ready.</span> Build
               your app on a solid, scalable, well-tested foundation.
             </p>
             <Link to={LOGIN_PATH} className={buttonVariants({ size: 'sm' })}>
@@ -425,8 +425,8 @@ export default function Index() {
             </Link>
           </div>
           <div className="flex w-full flex-col items-start justify-center gap-6 p-10 lg:w-[60%] lg:border-b-0 lg:p-12">
-            <p className="h-14 text-lg text-primary/60">
-              <span className="font-semibold text-primary">Ready to Ship.</span>{' '}
+            <p className="text-primary/60 h-14 text-lg">
+              <span className="text-primary font-semibold">Ready to Ship.</span>{' '}
               Deployments ready with a single command.
             </p>
             <a
@@ -439,23 +439,23 @@ export default function Index() {
               Explore Documentation
             </a>
           </div>
-          <div className="absolute left-0 top-0 z-10 flex flex-col items-center justify-center">
-            <span className="absolute h-6 w-[1px] bg-primary/40" />
-            <span className="absolute h-[1px] w-6 bg-primary/40" />
+          <div className="absolute top-0 left-0 z-10 flex flex-col items-center justify-center">
+            <span className="bg-primary/40 absolute h-6 w-[1px]" />
+            <span className="bg-primary/40 absolute h-[1px] w-6" />
           </div>
-          <div className="absolute bottom-0 right-0 z-10 flex flex-col items-center justify-center">
-            <span className="absolute h-6 w-[1px] bg-primary/40" />
-            <span className="absolute h-[1px] w-6 bg-primary/40" />
+          <div className="absolute right-0 bottom-0 z-10 flex flex-col items-center justify-center">
+            <span className="bg-primary/40 absolute h-6 w-[1px]" />
+            <span className="bg-primary/40 absolute h-[1px] w-6" />
           </div>
         </div>
 
         <div className="z-10 flex h-full w-full flex-col items-center justify-center gap-6 p-12">
-          <h1 className="text-center text-4xl font-bold leading-tight text-primary md:text-6xl">
+          <h1 className="text-primary text-center text-4xl leading-tight font-bold md:text-6xl">
             Proudly Open Source
           </h1>
-          <p className="text-center text-lg text-primary/60">
+          <p className="text-primary/60 text-center text-lg">
             Remix SaaS is a fully{' '}
-            <span className="font-semibold text-primary">Open Source</span> project.
+            <span className="text-primary font-semibold">Open Source</span> project.
             <br />
             Code is available on GitHub.
           </p>
@@ -464,7 +464,7 @@ export default function Index() {
               href="https://github.com/dev-xo/remix-saas"
               target="_blank"
               rel="noreferrer"
-              className="hidden h-10 select-none items-center gap-2 rounded-full bg-green-500/5 px-2 py-1 pr-2.5 text-base font-medium tracking-tight text-green-600 ring-1 ring-inset ring-green-600/20 backdrop-blur-sm transition-all duration-300 hover:brightness-110 dark:bg-yellow-800/40 dark:text-yellow-100 dark:ring-yellow-200/50 md:flex">
+              className="hidden h-10 items-center gap-2 rounded-full bg-green-500/5 px-2 py-1 pr-2.5 text-base font-medium tracking-tight text-green-600 ring-1 ring-green-600/20 backdrop-blur-sm transition-all duration-300 select-none ring-inset hover:brightness-110 md:flex dark:bg-yellow-800/40 dark:text-yellow-100 dark:ring-yellow-200/50">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-6 w-6 text-green-600 dark:text-yellow-100"
@@ -486,7 +486,7 @@ export default function Index() {
           rel="noreferrer"
           className="flex items-center justify-center hover:scale-110">
           <svg
-            className="h-8 w-8 text-primary"
+            className="text-primary h-8 w-8"
             strokeLinejoin="round"
             viewBox="0 0 16 16">
             <path
@@ -501,23 +501,23 @@ export default function Index() {
         <ThemeSwitcherHome />
 
         <div className="flex flex-col items-center gap-2 sm:flex-row">
-          <p className="flex items-center whitespace-nowrap text-center text-sm font-medium text-primary/60">
+          <p className="text-primary/60 flex items-center text-center text-sm font-medium whitespace-nowrap">
             Built by&nbsp;
             <a
               href="https://twitter.com/DanielKanem"
               target="_blank"
               rel="noreferrer"
-              className="flex items-center text-primary hover:text-primary hover:underline">
+              className="text-primary hover:text-primary flex items-center hover:underline">
               DanielKanem
             </a>
           </p>
-          <p className="flex items-center whitespace-nowrap text-center text-sm font-medium text-primary/60">
+          <p className="text-primary/60 flex items-center text-center text-sm font-medium whitespace-nowrap">
             Source code available on&nbsp;{' '}
             <a
               href="https://github.com/dev-xo/remix-saas"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center text-primary hover:text-primary hover:underline">
+              className="text-primary hover:text-primary flex items-center hover:underline">
               GitHub.
             </a>
           </p>
@@ -528,7 +528,7 @@ export default function Index() {
       <img
         src={ShadowPNG}
         alt="Hero"
-        className={`fixed left-0 top-0 z-0 h-full w-full opacity-60 ${theme === 'dark' ? 'invert' : ''}`}
+        className={`fixed top-0 left-0 z-0 h-full w-full opacity-60 ${theme === 'dark' ? 'invert' : ''}`}
       />
       <div className="base-grid fixed h-screen w-screen opacity-40" />
       <div className="fixed bottom-0 h-screen w-screen bg-gradient-to-t from-[hsl(var(--card))] to-transparent" />

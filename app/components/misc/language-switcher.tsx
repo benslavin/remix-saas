@@ -25,7 +25,7 @@ export function LanguageSwitcher() {
 
   return (
     <Select onValueChange={(value) => navigate(`${pathname}?lng=${value}`)}>
-      <SelectTrigger className="h-6 rounded border-primary/20 bg-secondary !px-2 hover:border-primary/40">
+      <SelectTrigger className="border-primary/20 bg-secondary hover:border-primary/40 h-6 rounded px-2!">
         <div className="flex items-start gap-2">
           <Languages className="h-[14px] w-[14px]" />
           <span className="text-xs font-medium">{formatLanguage(language || 'en')}</span>
@@ -36,7 +36,7 @@ export function LanguageSwitcher() {
           <SelectItem
             key={value}
             value={value}
-            className={`text-sm font-medium text-primary/60`}>
+            className={`text-primary/60 text-sm font-medium`}>
             {text}
           </SelectItem>
         ))}

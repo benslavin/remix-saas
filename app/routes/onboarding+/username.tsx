@@ -107,9 +107,9 @@ export default function OnboardingUsername() {
   return (
     <div className="mx-auto flex h-full w-full max-w-96 flex-col items-center justify-center gap-6">
       <div className="flex flex-col items-center gap-2">
-        <span className="mb-2 animate-pulse select-none text-6xl">👋</span>
-        <h3 className="text-center text-2xl font-medium text-primary">Welcome!</h3>
-        <p className="text-center text-base font-normal text-primary/60">
+        <span className="mb-2 animate-pulse text-6xl select-none">👋</span>
+        <h3 className="text-primary text-center text-2xl font-medium">Welcome!</h3>
+        <p className="text-primary/60 text-center text-base font-normal">
           Let&apos;s get started by choosing a username.
         </p>
       </div>
@@ -141,7 +141,7 @@ export default function OnboardingUsername() {
 
         <div className="flex flex-col">
           {username.errors && (
-            <span className="mb-2 text-sm text-destructive dark:text-destructive-foreground">
+            <span className="text-destructive dark:text-destructive-foreground mb-2 text-sm">
               {username.errors.join(' ')}
             </span>
           )}
@@ -152,7 +152,7 @@ export default function OnboardingUsername() {
         </Button>
       </Form>
 
-      <p className="px-6 text-center text-sm font-normal leading-normal text-primary/60">
+      <p className="text-primary/60 px-6 text-center text-sm leading-normal font-normal">
         You can update your username at any time from your account settings.
       </p>
     </div>

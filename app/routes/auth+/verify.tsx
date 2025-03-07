@@ -82,8 +82,8 @@ export default function Verify() {
   return (
     <div className="mx-auto flex h-full w-full max-w-96 flex-col items-center justify-center gap-6">
       <div className="mb-2 flex flex-col gap-2">
-        <p className="text-center text-2xl text-primary">Check your inbox!</p>
-        <p className="text-center text-base font-normal text-primary/60">
+        <p className="text-primary text-center text-2xl">Check your inbox!</p>
+        <p className="text-primary/60 text-center text-base font-normal">
           We&apos;ve just emailed you a temporary password.
           <br />
           Please enter it below.
@@ -115,12 +115,12 @@ export default function Verify() {
 
         <div className="flex flex-col">
           {!authError && code.errors && (
-            <span className="mb-2 text-sm text-destructive dark:text-destructive-foreground">
+            <span className="text-destructive dark:text-destructive-foreground mb-2 text-sm">
               {code.errors.join(' ')}
             </span>
           )}
           {authEmail && authError && (
-            <span className="mb-2 text-sm text-destructive dark:text-destructive-foreground">
+            <span className="text-destructive dark:text-destructive-foreground mb-2 text-sm">
               {authError.message}
             </span>
           )}
@@ -137,7 +137,7 @@ export default function Verify() {
         <AuthenticityTokenInput />
         <HoneypotInputs />
 
-        <p className="text-center text-sm font-normal text-primary/60">
+        <p className="text-primary/60 text-center text-sm font-normal">
           Did not receive the code?
         </p>
         <Button type="submit" variant="ghost" className="w-full hover:bg-transparent">
