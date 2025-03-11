@@ -1,5 +1,5 @@
 import type { User } from '@prisma/client'
-import { redirect } from '@remix-run/node'
+import { redirect } from 'react-router'
 import { Authenticator } from 'remix-auth'
 import { TOTPStrategy } from 'remix-auth-totp'
 import { GitHubStrategy } from 'remix-auth-github'

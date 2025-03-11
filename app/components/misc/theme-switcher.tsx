@@ -1,5 +1,5 @@
 import type { Theme, ThemeExtended } from '#app/utils/hooks/use-theme'
-import { useSubmit, useFetcher } from '@remix-run/react'
+import { useSubmit, useFetcher } from 'react-router'
 import { Sun, Moon, Monitor } from 'lucide-react'
 import { useOptimisticThemeMode } from '#app/utils/hooks/use-theme'
 import { cn } from '#app/utils/misc'

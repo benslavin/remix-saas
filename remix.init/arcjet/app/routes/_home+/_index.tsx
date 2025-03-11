@@ -1,5 +1,5 @@
-import type { MetaFunction, LoaderFunctionArgs } from '@remix-run/node'
-import { Link, useLoaderData } from '@remix-run/react'
+import type { MetaFunction, LoaderFunctionArgs } from 'react-router'
+import { Link, useLoaderData } from 'react-router'
 import { detectBot } from '@arcjet/remix'
 import { Star, ArrowRight } from 'lucide-react'
 import { authenticator } from '#app/modules/auth/auth.server'

@@ -1,6 +1,6 @@
 import type { ClassValue } from 'clsx'
 import type { LoaderData as RootLoaderData } from '#app/root'
-import { useFormAction, useNavigation, useRouteLoaderData } from '@remix-run/react'
+import { useFormAction, useNavigation, useRouteLoaderData } from 'react-router'
 import { clsx } from 'clsx'
 import { twMerge } from 'tailwind-merge'
 

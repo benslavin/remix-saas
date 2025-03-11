@@ -1,4 +1,4 @@
-import { useLocation } from '@remix-run/react'
+import { useLocation } from 'react-router'
 import { ROUTE_PATH as DASHBOARD_PATH } from '#app/routes/dashboard+/_layout'
 import { ROUTE_PATH as BILLING_PATH } from '#app/routes/dashboard+/settings.billing'
 import { ROUTE_PATH as SETTINGS_PATH } from '#app/routes/dashboard+/settings'

@@ -1,4 +1,4 @@
-import type { ActionFunctionArgs } from '@remix-run/node'
+import type { ActionFunctionArgs } from 'react-router'
 import { z } from 'zod'
 import { stripe } from '#app/modules/stripe/stripe.server'
 import { PLANS } from '#app/modules/stripe/plans'

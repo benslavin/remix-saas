@@ -1,6 +1,5 @@
-import type { LoaderFunctionArgs, TypedResponse } from '@remix-run/node'
-import { Outlet, useLoaderData } from '@remix-run/react'
-import { redirect } from '@remix-run/node'
+import type { LoaderFunctionArgs } from 'react-router'
+import { Outlet, redirect, useLoaderData } from 'react-router'
 import { requireUser } from '#app/modules/auth/auth.server'
 import { prisma } from '#app/utils/db.server'
 import { ROUTE_PATH as ONBOARDING_USERNAME_PATH } from '#app/routes/onboarding+/username'
@@ -9,10 +8,7 @@ import { Header } from '#app/components/header'
 
 export const ROUTE_PATH = '/dashboard' as const
 
-export type LoaderData = Exclude<
-  Awaited<ReturnType<typeof loader>>,
-  Response | TypedResponse<unknown>
->
+export type LoaderData = Exclude<Awaited<ReturnType<typeof loader>>, Response>
 
 export async function loader({ request }: LoaderFunctionArgs) {
   const user = await requireUser(request)

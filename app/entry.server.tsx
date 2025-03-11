@@ -1,8 +1,8 @@
-import type { AppLoadContext, EntryContext } from '@remix-run/node'
+import type { AppLoadContext, EntryContext } from 'react-router'
 import { isbot } from 'isbot'
 import { PassThrough } from 'node:stream'
-import { RemixServer } from '@remix-run/react'
-import { createReadableStreamFromReadable } from '@remix-run/node'
+import { ServerRouter } from 'react-router'
+import { createReadableStreamFromReadable } from '@react-router/node'
 import { renderToPipeableStream } from 'react-dom/server'
 import { createInstance } from 'i18next'
 import { I18nextProvider, initReactI18next } from 'react-i18next'
@@ -16,13 +16,13 @@ import * as i18n from '#app/modules/i18n/i18n'
  */
 initEnvs()
 
-const ABORT_DELAY = 5_000
+export const streamTimeout = 5000
 
 export default async function handleRequest(
   request: Request,
   responseStatusCode: number,
   responseHeaders: Headers,
-  remixContext: EntryContext,
+  reactRouterContext: EntryContext,
   loadContext: AppLoadContext,
 ) {
   const callbackName = isbot(request.headers.get('user-agent'))
@@ -50,7 +50,7 @@ export default async function handleRequest(
    */
   const instance = createInstance()
   const lng = await i18nServer.getLocale(request)
-  const ns = i18nServer.getRouteNamespaces(remixContext)
+  const ns = i18nServer.getRouteNamespaces(reactRouterContext)
 
   await instance.use(initReactI18next).init({
     ...i18n,
@@ -64,11 +64,7 @@ export default async function handleRequest(
     const { pipe, abort } = renderToPipeableStream(
       <NonceProvider value={nonce}>
         <I18nextProvider i18n={instance}>
-          <RemixServer
-            context={remixContext}
-            url={request.url}
-            abortDelay={ABORT_DELAY}
-          />
+          <ServerRouter context={reactRouterContext} url={request.url} />
         </I18nextProvider>
       </NonceProvider>,
       {
@@ -101,6 +97,8 @@ export default async function handleRequest(
       },
     )
 
-    setTimeout(abort, ABORT_DELAY)
+    // Automatically timeout the React renderer after 6 seconds, which ensures
+    // React has enough time to flush down the rejected boundary contents
+    setTimeout(abort, streamTimeout + 1000)
   })
 }

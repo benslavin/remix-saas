@@ -1,6 +1,6 @@
 import type { LoaderData as AdminLoaderData } from '#app/routes/admin+/_layout'
 import type { LoaderData as DashboardLoaderData } from '#app/routes/dashboard+/_layout'
-import { Link, useLocation, useSubmit, useNavigate } from '@remix-run/react'
+import { Link, useLocation, useSubmit, useNavigate } from 'react-router'
 import {
   ChevronUp,
   ChevronDown,

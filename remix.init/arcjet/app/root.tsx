@@ -1,4 +1,4 @@
-import type { MetaFunction, LinksFunction, LoaderFunctionArgs } from '@remix-run/node'
+import type { MetaFunction, LinksFunction, LoaderFunctionArgs } from 'react-router'
 import type { Theme } from '#app/utils/hooks/use-theme'
 import {
   Links,
@@ -8,7 +8,7 @@ import {
   ScrollRestoration,
   useLoaderData,
   data,
-} from '@remix-run/react'
+} from 'react-router'
 import { useChangeLanguage } from 'remix-i18next/react'
 import { AuthenticityTokenProvider } from 'remix-utils/csrf/react'
 import { HoneypotProvider } from 'remix-utils/honeypot/react'
